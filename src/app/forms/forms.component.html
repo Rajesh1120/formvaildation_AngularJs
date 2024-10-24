@@ -1,0 +1,29 @@
+
+<div>
+    <form #userForm="ngForm" (ngSubmit)="onSubmit()">
+       firstname: <input required type ="text" [(ngModel)]="userdetails.firstname" #fristname="ngModel" name="fname" />
+       phonenumber: <input type="number" name="number" pattern="[0-9]{10}" required [(ngModel)]="userdetails.phonenumber" #phnum="ngModel" />
+        <div *ngIf="phnum.touched && phnum.invalid">
+            <p>phonenumber must be 10 digits</p>
+        </div>
+       Lastname: <input type = "text" [(ngModel)]="userdetails.lastname" required name="lname" />
+       Email: <input type = "email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" [(ngModel)]="userdetails.email" pattern #email="ngModel"  required name="email" />
+       <div *ngIf="email.touched && email.invalid" class="text-danger">
+        <p>invalid email is required.</p>
+      </div>
+
+      
+      
+       course:
+       <select required name="Course" [(ngModel)]="userdetails.course">
+        <option disabled  >Select the course</option>
+        <option value="cse">CSE</option>
+        <option value="it">IT</option>
+        <option value="me">ME</option>
+       </select>
+       gender:<input required type="radio" name="male" [(ngModel)]="userdetails.gender"value="male" />male
+       <input type="radio" required name="female" [(ngModel)]="userdetails.gender" value="female" /> female
+       
+        <button [disabled]="userForm.invalid" type="submit">submit</button>
+    </form>
+</div>
