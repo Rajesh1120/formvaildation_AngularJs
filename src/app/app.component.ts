@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FormsComponent } from './forms/forms.component';
 
@@ -12,4 +12,6 @@ import { FormsComponent } from './forms/forms.component';
 })
 export class AppComponent {
   title = 'form';
+
+  
 }
